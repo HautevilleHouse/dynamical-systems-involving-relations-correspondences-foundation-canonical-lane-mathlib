@@ -1,0 +1,19 @@
+import HautevilleHouse.DynamicalSystemsInvolvingRelationsCorrespondencesFoundation.RelationDynamicalSystem
+import HautevilleHouse.DynamicalSystemsInvolvingRelationsCorrespondencesFoundation.CorrespondenceAttractor
+import HautevilleHouse.DynamicalSystemsInvolvingRelationsCorrespondencesFoundation.StochasticRelationDynamicalSystem
+import HautevilleHouse.DynamicalSystemsInvolvingRelationsCorrespondencesFoundation.InvariantMeasure
+import HautevilleHouse.DynamicalSystemsInvolvingRelationsCorrespondencesFoundation.LyapunovFunction
+import canonicalLaneMathlib.AdmissibleClass
+
+namespace HautevilleHouse
+namespace DynamicalSystemsInvolvingRelationsCorrespondencesFoundation
+
+def ConstrainedDynamicalSystemsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_dynamical_systems_endgame (A : AdmissibleClass) :
+    ConstrainedDynamicalSystemsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DynamicalSystemsInvolvingRelationsCorrespondencesFoundation
+end HautevilleHouse
